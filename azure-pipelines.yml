@@ -19,3 +19,23 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
+- task: SonarQubePrepare@4
+  inputs:
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'project2'
+    cliProjectName: 'project2'
+    cliSources: 'sonar.sources'
+    extraProperties: |
+      sonar.projectKey=project2
+      sonar.projectName=project2
+      sonar.projectVersion=1.0
+      bugscout.server=https://bugscout.local/bugscout/server
+      bugscout.core.executor=remote
+      sonar.sources=.
+      
+      sonar.login=bs4admin
+      sonar.password=POgnaVfegVgh
+      sonar.host.url=https://bugscout.local
+      sonar.webHost=https://bugscout.local
+      sonar.webPort=443
